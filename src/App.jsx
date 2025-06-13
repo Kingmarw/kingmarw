@@ -61,15 +61,15 @@ export default function App() {
             whileHover={{ scale: 1.05 }}
             className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 shadow-lg hover:shadow-2xl transition duration-300 border border-purple-500"
           >
-            <h4 className="text-xl font-semibold mb-2">📚 School Portal</h4>
-            <p className="text-gray-400">Flask-based platform for announcements, likes, comments, and Cloudinary uploads.</p>
+            <h4 className="text-xl font-semibold mb-2">React web applications</h4>
+            <p className="text-gray-400">i developed a react web app.</p>
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 shadow-lg hover:shadow-2xl transition duration-300 border border-purple-500"
           >
-            <h4 className="text-xl font-semibold mb-2">🎮 Adventure Game</h4>
-            <p className="text-gray-400">Built with Ursina. A full game with enemies, UI, and storyline.</p>
+            <h4 className="text-xl font-semibold mb-2">front-end devolper</h4>
+            <p className="text-gray-400">i'm front-end devolper.</p>
           </motion.div>
         </div>
       </section>
