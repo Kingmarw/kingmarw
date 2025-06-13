@@ -78,8 +78,8 @@ export default function App() {
       <section id="contact" className="px-6 py-24 text-center relative z-10">
         <h3 className="text-4xl font-bold mb-4">Let's Talk</h3>
         <p className="text-gray-400 mb-6">Have a project in mind? I'm open to collaborations and freelance work.</p>
-        <a href="mailto:kingmarw@example.com" className="bg-purple-600 hover:bg-purple-700 transition text-white font-semibold px-8 py-3 rounded-full shadow-lg">
-          Send me an Email
+        <a href="https://wa.me/+201119644023" className="bg-purple-600 hover:bg-purple-700 transition text-white font-semibold px-8 py-3 rounded-full shadow-lg">
+          Send me an message
         </a>
       </section>
 
