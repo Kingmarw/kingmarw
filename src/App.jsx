@@ -7,7 +7,7 @@ export default function App() {
     <div className="relative bg-gradient-to-br from-black via-gray-900 to-black text-white font-sans overflow-x-hidden min-h-screen">
       {/* Header */}
       <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-black/60 backdrop-blur-md border border-gray-700 rounded-2xl px-8 py-4 flex justify-between items-center w-[90%] max-w-5xl shadow-2xl">
-        <h1 className="text-2xl font-bold tracking-tight">King Marw</h1>
+        <h1 className="text-2xl font-bold tracking-tight">marw</h1>
         <nav className="space-x-6 text-sm">
           <a href="#about" className="hover:text-purple-400 transition">About</a>
           <a href="#projects" className="hover:text-purple-400 transition">Projects</a>
@@ -49,7 +49,7 @@ export default function App() {
       <section id="about" className="px-6 py-24 max-w-4xl mx-auto relative z-10">
         <h3 className="text-4xl font-bold mb-6 border-b border-purple-600 pb-2">About Me</h3>
         <p className="text-gray-300 leading-relaxed text-lg">
-          I'm a 21-year-old full stack & game developer from Egypt. I specialize in React, Flask, SQL, and Godot. Whether it's a website or an immersive experience, I bring visions to life with code.
+          I'm a 14-year-old full stack & game developer from Egypt. I specialize in React, Flask, SQL, and Godot. Whether it's a website or an immersive experience, I bring visions to life with code.
         </p>
       </section>
 
