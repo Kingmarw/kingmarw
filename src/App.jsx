@@ -47,7 +47,7 @@ export default function App() {
 
       {/* About */}
       <section id="about" className="px-6 py-24 max-w-4xl mx-auto relative z-10">
-        <h3 className="text-4xl font-bold mb-6 border-b border-purple-600 pb-2">About Me</h3>
+        <h3 className="text-white font-bold mb-6 border-b border-purple-600 pb-2">About Me</h3>
         <p className="text-gray-300 leading-relaxed text-lg">
           I'm a 14-year-old full stack & game developer from Egypt. I specialize in React, Flask, SQL, and Godot. Whether it's a website or an immersive experience, I bring visions to life with code.
         </p>
@@ -76,7 +76,7 @@ export default function App() {
 
       {/* Contact */}
       <section id="contact" className="px-6 py-24 text-center relative z-10">
-        <h3 className="text-4xl font-bold mb-4">Let's Talk</h3>
+        <h3 className="text-white font-bold mb-4">Let's Talk</h3>
         <p className="text-gray-400 mb-6">Have a project in mind? I'm open to collaborations and freelance work.</p>
         <a href="https://wa.me/+201119644023" className="bg-purple-600 hover:bg-purple-700 transition text-white font-semibold px-8 py-3 rounded-full shadow-lg">
           Send me an message
