@@ -104,7 +104,9 @@ section h3 {
 .contact-btn:hover {
   background: #1e40af;
 }
-
+#projects{
+  border-radius: 15px;
+}
 /* Footer */
 footer {
   text-align: center;
