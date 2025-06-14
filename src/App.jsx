@@ -77,8 +77,8 @@ export default function App() {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="mt-4 text-gray-300 max-w-md text-lg lg:max-w-lg"
         >
-          I build sleek, modern websites & immersive games. Clean code. Killer
-          design. Real impact.
+          I'm youtuber and programmer 
+          I want to share my knoledge with the other people
         </motion.p>
         <motion.div
           variants={fadeInUp}
