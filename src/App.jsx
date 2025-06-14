@@ -12,7 +12,7 @@ export default function App() {
   ];
 
   const social = [
-    'fab fa-github',
+    { href:'https://githunb.com','fab fa-github'},
     'fab fa-linkedin',
     'fab fa-twitter',
     'fab fa-instagram'
