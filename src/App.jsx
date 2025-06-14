@@ -129,7 +129,7 @@ export default function App() {
           </h3>
           <p className="text-gray-300 leading-relaxed text-lg">
             I'm a passionate full-stack & game developer from Egypt. With
-            expertise in React, Flask, SQL, and Godot Engine, I craft
+            expertise in html, css, python and Godot Engine, I craft
             applications that are both performant and visually stunning.
           </p>
         </motion.div>
