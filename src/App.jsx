@@ -17,11 +17,11 @@ export default function App() {
   const socialLinks = [
     {
       icon: "fab fa-facebook",
-      link: "https://facebook.com/YourFacebookUsername",
+      link: "https://facebook.com/kingmarw3",
     },
     { icon: "fab fa-github", link: "https://github.com/KingMarw" },
-    { icon: "fab fa-x-twitter", link: "https://x.com/YourXUsername" }, // أو fa-twitter لو لسه مش ظاهر
-    { icon: "fab fa-youtube", link: "https://youtube.com/@YourYouTubeChannel" },
+    { icon: "fab fa-x-twitter", link: "https://x.com/KingMarw17299" }, // أو fa-twitter لو لسه مش ظاهر
+    { icon: "fab fa-youtube", link: "https://youtube.com/@kingmarw" },
   ];
 
   return (
