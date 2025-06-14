@@ -28,10 +28,18 @@ export default function App() {
     const fetchVideos = async () => {
       try {
         const res = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?key=AIzaSyDKi3Irbwyb4-rQS4-p-Ktbes9Zxx4Jznc&channelId=UCvamsMKdgHHfLhk8wppAJ-g&part=snippet,id&order=date&maxResults=6`
+          `https://www.googleapis.com/youtube/v3/search?key=YOUR_API_KEY&channelId=UC3Yo52K3ZbSDrgFk8MTCBMg&part=snippet,id&order=date&maxResults=6`
         );
         const data = await res.json();
-        setVideos(data.items);
+        const filtered = (data.items || []).filter(
+          (v) =>
+            v.id &&
+            v.id.videoId &&
+            v.snippet &&
+            v.snippet.title &&
+            v.snippet.thumbnails?.high?.url
+        );
+        setVideos(filtered);
       } catch (err) {
         console.error("Failed to fetch videos", err);
       }
