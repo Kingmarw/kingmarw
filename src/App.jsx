@@ -3,19 +3,25 @@ import { motion } from "framer-motion";
 import profile from "./assets/kingmarw.png";
 
 export default function App() {
-  const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   const navItems = [
-    { href: '#about', label: 'About' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#contact', label: 'Contact' }
+    { href: "#about", label: "About" },
+    { href: "#projects", label: "Projects" },
+    { href: "#contact", label: "Contact" },
   ];
 
-  const social = [
-    { href:'https://githunb.com','fab fa-github'},
-    'fab fa-linkedin',
-    'fab fa-twitter',
-    'fab fa-instagram'
+  const socialLinks = [
+    {
+      icon: "fab fa-facebook",
+      link: "https://facebook.com/YourFacebookUsername",
+    },
+    { icon: "fab fa-github", link: "https://github.com/KingMarw" },
+    { icon: "fab fa-x-twitter", link: "https://x.com/YourXUsername" }, // أو fa-twitter لو لسه مش ظاهر
+    { icon: "fab fa-youtube", link: "https://youtube.com/@YourYouTubeChannel" },
   ];
 
   return (
@@ -25,7 +31,11 @@ export default function App() {
         <h1 className="text-2xl font-bold tracking-tight">Marw</h1>
         <nav className="space-x-6 text-sm">
           {navItems.map((item, idx) => (
-            <a key={idx} href={item.href} className="hover:text-purple-400 transition">
+            <a
+              key={idx}
+              href={item.href}
+              className="hover:text-purple-400 transition"
+            >
               {item.label}
             </a>
           ))}
@@ -33,8 +43,17 @@ export default function App() {
       </header>
 
       {/* Hero */}
-      <section id="hero" className="flex flex-col items-center justify-center text-center pt-32 pb-40 px-6">
-        <motion.div variants={fadeInUp} initial="hidden" animate="visible" transition={{ duration: 1 }} className="relative">
+      <section
+        id="hero"
+        className="flex flex-col items-center justify-center text-center pt-32 pb-40 px-6"
+      >
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 1 }}
+          className="relative"
+        >
           <img
             src={profile}
             alt="Profile"
@@ -58,7 +77,8 @@ export default function App() {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="mt-4 text-gray-300 max-w-md text-lg lg:max-w-lg"
         >
-          I build sleek, modern websites & immersive games. Clean code. Killer design. Real impact.
+          I build sleek, modern websites & immersive games. Clean code. Killer
+          design. Real impact.
         </motion.p>
         <motion.div
           variants={fadeInUp}
@@ -67,13 +87,15 @@ export default function App() {
           transition={{ delay: 0.9, duration: 0.8 }}
           className="flex space-x-6 mt-8 text-2xl"
         >
-          {social.map((cls, idx) => (
+          {socialLinks.map(({ icon, link }, idx) => (
             <a
               key={idx}
-              href="#"
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-purple-400 transition-colors duration-300"
             >
-              <i className={cls}></i>
+              <i className={icon}></i>
             </a>
           ))}
         </motion.div>
@@ -81,10 +103,20 @@ export default function App() {
 
       {/* About */}
       <section id="about" className="px-6 py-24 max-w-4xl mx-auto">
-        <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-white/5 backdrop-blur-2xl rounded-2xl p-10">
-          <h3 className="text-3xl font-bold mb-6 border-b-2 border-purple-500 inline-block">About Me</h3>
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="bg-white/5 backdrop-blur-2xl rounded-2xl p-10"
+        >
+          <h3 className="text-3xl font-bold mb-6 border-b-2 border-purple-500 inline-block">
+            About Me
+          </h3>
           <p className="text-gray-300 leading-relaxed text-lg">
-            I'm a passionate full-stack & game developer from Egypt. With expertise in React, Flask, SQL, and Godot Engine, I craft applications that are both performant and visually stunning.
+            I'm a passionate full-stack & game developer from Egypt. With
+            expertise in React, Flask, SQL, and Godot Engine, I craft
+            applications that are both performant and visually stunning.
           </p>
         </motion.div>
       </section>
@@ -103,9 +135,9 @@ export default function App() {
         </motion.h3>
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {[
-            { title: 'Portfolio Website', desc: 'React & TailwindCSS' },
-            { title: 'School Management App', desc: 'Python, Flask & SQLite' },
-            { title: '2D Adventure Game', desc: 'Godot Engine' }
+            { title: "Portfolio Website", desc: "React & TailwindCSS" },
+            { title: "School Management App", desc: "Python, Flask & SQLite" },
+            { title: "2D Adventure Game", desc: "Godot Engine" },
           ].map((proj, idx) => (
             <motion.div
               key={idx}
@@ -117,7 +149,9 @@ export default function App() {
               whileHover={{ scale: 1.08 }}
               className="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-transform duration-300 border border-purple-500"
             >
-              <h4 className="text-xl font-semibold mb-2 text-white">{proj.title}</h4>
+              <h4 className="text-xl font-semibold mb-2 text-white">
+                {proj.title}
+              </h4>
               <p className="text-gray-300">{proj.desc}</p>
             </motion.div>
           ))}
@@ -126,9 +160,18 @@ export default function App() {
 
       {/* Contact */}
       <section id="contact" className="px-6 py-24 text-center">
-        <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-white/5 backdrop-blur-2xl rounded-2xl inline-block px-10 py-8">
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="bg-white/5 backdrop-blur-2xl rounded-2xl inline-block px-10 py-8"
+        >
           <h3 className="text-3xl font-bold mb-4">Let's Talk</h3>
-          <p className="text-gray-300 mb-6">Have a project in mind? I'm open for collaborations and freelance work.</p>
+          <p className="text-gray-300 mb-6">
+            Have a project in mind? I'm open for collaborations and freelance
+            work.
+          </p>
           <motion.a
             href="https://wa.me/+201119644023"
             whileHover={{ scale: 1.1 }}
@@ -141,7 +184,9 @@ export default function App() {
 
       {/* Footer */}
       <footer className="text-center text-sm text-gray-400 py-8 border-t border-gray-800 bg-black/50">
-        <p>&copy; {new Date().getFullYear()} Marwan Elbadry. All rights reserved.</p>
+        <p>
+          &copy; {new Date().getFullYear()} Marwan Elbadry. All rights reserved.
+        </p>
       </footer>
     </div>
   );
