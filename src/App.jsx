@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import profile from "./assets/kingmarw.png";
 
@@ -11,18 +11,33 @@ export default function App() {
   const navItems = [
     { href: "#about", label: "About" },
     { href: "#projects", label: "Projects" },
+    { href: "#youtube", label: "YouTube" },
     { href: "#contact", label: "Contact" },
   ];
 
   const socialLinks = [
-    {
-      icon: "fab fa-facebook",
-      link: "https://facebook.com/kingmarw3",
-    },
+    { icon: "fab fa-facebook", link: "https://facebook.com/kingmarw3" },
     { icon: "fab fa-github", link: "https://github.com/KingMarw" },
-    { icon: "fab fa-x-twitter", link: "https://x.com/KingMarw17299" }, // أو fa-twitter لو لسه مش ظاهر
+    { icon: "fab fa-x-twitter", link: "https://x.com/KingMarw17299" },
     { icon: "fab fa-youtube", link: "https://youtube.com/@kingmarw" },
   ];
+
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const res = await fetch(
+          `https://www.googleapis.com/youtube/v3/search?key=AIzaSyDKi3Irbwyb4-rQS4-p-Ktbes9Zxx4Jznc&channelId=UCvamsMKdgHHfLhk8wppAJ-g&part=snippet,id&order=date&maxResults=6`
+        );
+        const data = await res.json();
+        setVideos(data.items);
+      } catch (err) {
+        console.error("Failed to fetch videos", err);
+      }
+    };
+    fetchVideos();
+  }, []);
 
   return (
     <div className="relative bg-gradient-to-br from-black via-gray-900 to-black text-white font-sans overflow-x-hidden min-h-screen scroll-smooth">
@@ -77,8 +92,8 @@ export default function App() {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="mt-4 text-gray-300 max-w-md text-lg lg:max-w-lg"
         >
-          I'm youtuber and programmer 
-          I want to share my knoledge with the other people
+          I'm youtuber and programmer I want to share my knoledge with the other
+          people
         </motion.p>
         <motion.div
           variants={fadeInUp}
@@ -154,6 +169,43 @@ export default function App() {
               </h4>
               <p className="text-gray-300">{proj.desc}</p>
             </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* YouTube Videos */}
+      <section id="youtube" className="px-6 py-24 max-w-6xl mx-auto">
+        <motion.h3
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="text-4xl font-bold mb-12 text-center text-purple-500"
+        >
+          Latest Videos
+        </motion.h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {videos.map((video, idx) => (
+            <div
+              key={idx}
+              className="bg-white/5 backdrop-blur-2xl rounded-xl p-4 border border-purple-500"
+            >
+              <a
+                href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={video.snippet.thumbnails.high.url}
+                  alt={video.snippet.title}
+                  className="rounded-xl mb-4"
+                />
+                <h4 className="text-lg font-semibold text-white mb-2">
+                  {video.snippet.title}
+                </h4>
+              </a>
+            </div>
           ))}
         </div>
       </section>
