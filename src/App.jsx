@@ -42,7 +42,7 @@ export default function App() {
 
   return (
     <div className="relative bg-gradient-to-br from-black via-gray-900 to-black text-white font-sans overflow-x-hidden min-h-screen scroll-smooth">
-      <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-black/60 backdrop-blur-md border border-gray-700 rounded-2xl px-8 py-4 flex justify-between items-center w-[90%] max-w-5xl shadow-2xl">
+      <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-black/60 backdrop-blur-md border border-gray-700 rounded-full px-8 py-4 flex justify-between items-center w-[90%] max-w-5xl shadow-2xl">
         <h1 className="text-2xl font-bold tracking-tight">Marw</h1>
         <nav className="space-x-6 text-sm">
           {navItems.map((item, idx) => (
