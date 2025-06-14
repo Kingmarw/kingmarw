@@ -11,7 +11,6 @@ export default function App() {
   const navItems = [
     { href: "#about", label: "About" },
     { href: "#projects", label: "Projects" },
-    { href: "#youtube", label: "YouTube" },
     { href: "#contact", label: "Contact" },
   ];
 
