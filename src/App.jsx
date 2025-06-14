@@ -6,10 +6,10 @@ export default function App() {
   const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
   const navItems = [
-    { icon: 'fas fa-home', href: '#hero', label: 'Home' },
-    { icon: 'fas fa-user', href: '#about', label: 'About' },
-    { icon: 'fas fa-briefcase', href: '#projects', label: 'Projects' },
-    { icon: 'fas fa-envelope', href: '#contact', label: 'Contact' }
+    { href: '#hero', label: 'Home' },
+    { href: '#about', label: 'About' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#contact', label: 'Contact' }
   ];
 
   const social = [
@@ -26,22 +26,19 @@ export default function App() {
         initial={{ opacity: 0, y: -60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 bg-black/50 backdrop-blur-2xl border-b border-gray-700 w-full max-w-5xl"
+        className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/50 backdrop-blur-2xl border border-gray-700 rounded-2xl px-8 py-3 w-[90%] max-w-4xl shadow-xl"
       >
-        <div className="flex items-center justify-center h-16 px-6">
-          <nav className="flex space-x-10 text-xl text-gray-300">
-            {navItems.map((item, idx) => (
-              <a
-                key={idx}
-                href={item.href}
-                className="hover:text-purple-400 transition-colors duration-300"
-                title={item.label}
-              >
-                <i className={item.icon}></i>
-              </a>
-            ))}
-          </nav>
-        </div>
+        <nav className="flex justify-center space-x-10 text-sm text-gray-300">
+          {navItems.map((item, idx) => (
+            <a
+              key={idx}
+              href={item.href}
+              className="hover:text-purple-400 transition-colors duration-300 uppercase tracking-wide"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
       </motion.header>
 
       {/* Hero */}
