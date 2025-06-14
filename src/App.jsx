@@ -190,9 +190,18 @@ export default function App() {
             videos.map((video, idx) => {
               if (!video.id.videoId) return null;
               return (
-                <div
+                <motion.div
                   key={idx}
-                  className="bg-white/5 backdrop-blur-2xl rounded-xl p-4 border border-purple-500"
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.2, duration: 0.7, ease: "easeOut" }}
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 10px 25px rgba(168, 85, 247, 0.5)",
+                  }}
+                  className="bg-white/5 backdrop-blur-2xl rounded-xl p-4 border border-purple-500 cursor-pointer transform transition-all duration-300"
                 >
                   <a
                     href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
@@ -203,13 +212,13 @@ export default function App() {
                       src={video.snippet.thumbnails.high.url}
                       alt={video.snippet.title}
                       loading="lazy"
-                      className="rounded-xl mb-4"
+                      className="rounded-xl mb-4 hover:opacity-90 transition-opacity duration-300"
                     />
                     <h4 className="text-lg font-semibold text-white mb-2">
                       {video.snippet.title}
                     </h4>
                   </a>
-                </div>
+                </motion.div>
               );
             })
           )}
@@ -230,7 +239,7 @@ export default function App() {
             work.
           </p>
           <motion.a
-            href="malto:kingmarw3@gmail.com"
+            href="mailto:kingmarw3@gmail.com"
             whileHover={{ scale: 1.1 }}
             className="inline-block bg-purple-500 hover:bg-purple-600 transition-colors duration-300 text-white font-semibold px-8 py-3 rounded-full shadow-md"
           >
