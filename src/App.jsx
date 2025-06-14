@@ -6,7 +6,6 @@ export default function App() {
   const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
   const navItems = [
-    { href: '#hero', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#projects', label: 'Projects' },
     { href: '#contact', label: 'Contact' }
@@ -22,24 +21,16 @@ export default function App() {
   return (
     <div className="relative bg-gradient-to-br from-black via-gray-900 to-black text-white font-sans overflow-x-hidden min-h-screen scroll-smooth">
       {/* Header */}
-      <motion.header
-        initial={{ opacity: 0, y: -60 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/50 backdrop-blur-2xl border border-gray-700 rounded-2xl px-8 py-3 w-[90%] max-w-4xl shadow-xl"
-      >
-        <nav className="flex justify-center space-x-10 text-sm text-gray-300">
+      <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-black/60 backdrop-blur-md border border-gray-700 rounded-2xl px-8 py-4 flex justify-between items-center w-[90%] max-w-5xl shadow-2xl">
+        <h1 className="text-2xl font-bold tracking-tight">Marw</h1>
+        <nav className="space-x-6 text-sm">
           {navItems.map((item, idx) => (
-            <a
-              key={idx}
-              href={item.href}
-              className="hover:text-purple-400 transition-colors duration-300 uppercase tracking-wide"
-            >
+            <a key={idx} href={item.href} className="hover:text-purple-400 transition">
               {item.label}
             </a>
           ))}
         </nav>
-      </motion.header>
+      </header>
 
       {/* Hero */}
       <section id="hero" className="flex flex-col items-center justify-center text-center pt-32 pb-40 px-6">
@@ -100,7 +91,16 @@ export default function App() {
 
       {/* Projects */}
       <section id="projects" className="px-6 py-24 max-w-6xl mx-auto">
-        <motion.h3 variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-4xl font-bold mb-12 text-center text-purple-500">Featured Projects</motion.h3>
+        <motion.h3
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="text-4xl font-bold mb-12 text-center text-purple-500"
+        >
+          Featured Projects
+        </motion.h3>
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {[
             { title: 'Portfolio Website', desc: 'React & TailwindCSS' },
@@ -110,6 +110,9 @@ export default function App() {
             <motion.div
               key={idx}
               variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
               transition={{ delay: idx * 0.2, duration: 0.6 }}
               whileHover={{ scale: 1.08 }}
               className="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-transform duration-300 border border-purple-500"
