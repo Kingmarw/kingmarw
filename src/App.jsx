@@ -110,7 +110,7 @@ export default function App() {
           viewport={{ once: true }}
           className="bg-white/5 backdrop-blur-2xl rounded-2xl p-10"
         >
-          <h3 className="text-3xl font-bold mb-6 border-b-2 border-purple-500 inline-block">
+          <h3 className="text-white font-bold mb-6 border-b-2 border-purple-500 inline-block">
             About Me
           </h3>
           <p className="text-gray-300 leading-relaxed text-lg">
@@ -167,7 +167,7 @@ export default function App() {
           viewport={{ once: true }}
           className="bg-white/5 backdrop-blur-2xl rounded-2xl inline-block px-10 py-8"
         >
-          <h3 className="text-3xl font-bold mb-4">Let's Talk</h3>
+          <h3 className="text-white font-bold mb-4">Let's Talk</h3>
           <p className="text-gray-300 mb-6">
             Have a project in mind? I'm open for collaborations and freelance
             work.
