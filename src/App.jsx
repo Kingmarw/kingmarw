@@ -28,10 +28,17 @@ export default function App() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -60 }}
           transition={{ duration: 0.8 }}
-          className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/30 backdrop-blur-2xl border border-gray-600 rounded-3xl px-12 py-4 flex justify-between items-center w-[90%] max-w-5xl shadow-lg"
+          className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/30 backdrop-blur-2xl border border-gray-600 rounded-3xl px-12 py-4 flex items-center w-[90%] max-w-5xl shadow-lg"
         >
-          <h1 className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">marw</h1>
-          <motion.nav initial="hidden" animate="visible" variants={stagger} className="flex space-x-8 text-sm uppercase tracking-wider">
+          <h1 className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mr-auto">
+            marw
+          </h1>
+          <motion.nav
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+            className="absolute left-1/2 transform -translate-x-1/2 flex space-x-8 text-sm uppercase tracking-wider"
+          >
             {['about','experience','projects','blogs','testimonials','contact'].map((id) => (
               <motion.a
                 key={id}
