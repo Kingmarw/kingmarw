@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import profile from "./assets/kingmarw.png";
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 export default function App() {
   const sectionVariants = {
@@ -56,14 +55,6 @@ export default function App() {
           transition={{ delay: 0.9, duration: 0.8 }}
           className="flex space-x-6 mt-8"
         >
-          {[FaGithub, FaLinkedin, FaTwitter, FaInstagram].map((Icon, idx) => (
-            <a
-              key={idx}
-              href="#"
-              className="text-2xl hover:text-purple-400 transition duration-300"
-            >
-              <Icon />
-            </a>
           ))}
         </motion.div>
       </section>
