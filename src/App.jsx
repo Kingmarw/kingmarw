@@ -28,18 +28,12 @@ export default function App() {
     const fetchVideos = async () => {
       try {
         const res = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?key=YOUR_API_KEY&channelId=UC3Yo52K3ZbSDrgFk8MTCBMg&part=snippet,id&order=date&maxResults=6`
+          `https://www.googleapis.com/youtube/v3/search?key=${
+            import.meta.env.VITE_YOUTUBE_API_KEY
+          }&channelId=UCvamsMKdgHHfLhk8wppAJ-g&part=snippet,id&order=date&maxResults=6`
         );
         const data = await res.json();
-        const filtered = (data.items || []).filter(
-          (v) =>
-            v.id &&
-            v.id.videoId &&
-            v.snippet &&
-            v.snippet.title &&
-            v.snippet.thumbnails?.high?.url
-        );
-        setVideos(filtered);
+        setVideos(data.items || []);
       } catch (err) {
         console.error("Failed to fetch videos", err);
       }
@@ -49,7 +43,6 @@ export default function App() {
 
   return (
     <div className="relative bg-gradient-to-br from-black via-gray-900 to-black text-white font-sans overflow-x-hidden min-h-screen scroll-smooth">
-      {/* Header */}
       <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-black/60 backdrop-blur-md border border-gray-700 rounded-2xl px-8 py-4 flex justify-between items-center w-[90%] max-w-5xl shadow-2xl">
         <h1 className="text-2xl font-bold tracking-tight">Marw</h1>
         <nav className="space-x-6 text-sm">
@@ -65,7 +58,6 @@ export default function App() {
         </nav>
       </header>
 
-      {/* Hero */}
       <section
         id="hero"
         className="flex flex-col items-center justify-center text-center pt-32 pb-40 px-6"
@@ -80,6 +72,7 @@ export default function App() {
           <img
             src={profile}
             alt="Profile"
+            loading="lazy"
             className="w-48 h-48 rounded-full border-4 border-purple-500 shadow-[0_10px_25px_rgba(102,126,234,0.6)]"
           />
           <div className="absolute inset-0 animate-ping rounded-full bg-purple-500 opacity-20 blur-2xl" />
@@ -100,8 +93,7 @@ export default function App() {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="mt-4 text-gray-300 max-w-md text-lg lg:max-w-lg"
         >
-          I'm youtuber and programmer I want to share my knoledge with the other
-          people
+          I'm a YouTuber and programmer, passionate about sharing my knowledge with others.
         </motion.p>
         <motion.div
           variants={fadeInUp}
@@ -124,7 +116,6 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* About */}
       <section id="about" className="px-6 py-24 max-w-4xl mx-auto">
         <motion.div
           variants={fadeInUp}
@@ -144,7 +135,6 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* Projects */}
       <section id="projects" className="px-6 py-24 max-w-6xl mx-auto">
         <motion.h3
           variants={fadeInUp}
@@ -181,7 +171,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* YouTube Videos */}
       <section id="youtube" className="px-6 py-24 max-w-6xl mx-auto">
         <motion.h3
           variants={fadeInUp}
@@ -194,31 +183,40 @@ export default function App() {
           Latest Videos
         </motion.h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {videos.map((video, idx) => (
-            <div
-              key={idx}
-              className="bg-white/5 backdrop-blur-2xl rounded-xl p-4 border border-purple-500"
-            >
-              <a
-                href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={video.snippet.thumbnails.high.url}
-                  alt={video.snippet.title}
-                  className="rounded-xl mb-4"
-                />
-                <h4 className="text-lg font-semibold text-white mb-2">
-                  {video.snippet.title}
-                </h4>
-              </a>
-            </div>
-          ))}
+          {videos.length === 0 ? (
+            <p className="text-gray-400 col-span-full text-center">
+              No videos available or failed to load.
+            </p>
+          ) : (
+            videos.map((video, idx) => {
+              if (!video.id.videoId) return null;
+              return (
+                <div
+                  key={idx}
+                  className="bg-white/5 backdrop-blur-2xl rounded-xl p-4 border border-purple-500"
+                >
+                  <a
+                    href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={video.snippet.thumbnails.high.url}
+                      alt={video.snippet.title}
+                      loading="lazy"
+                      className="rounded-xl mb-4"
+                    />
+                    <h4 className="text-lg font-semibold text-white mb-2">
+                      {video.snippet.title}
+                    </h4>
+                  </a>
+                </div>
+              );
+            })
+          )}
         </div>
       </section>
 
-      {/* Contact */}
       <section id="contact" className="px-6 py-24 text-center">
         <motion.div
           variants={fadeInUp}
@@ -242,7 +240,6 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* Footer */}
       <footer className="text-center text-sm text-gray-400 py-8 border-t border-gray-800 bg-black/50">
         <p>
           &copy; {new Date().getFullYear()} Marwan Elbadry. All rights reserved.
