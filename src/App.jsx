@@ -230,11 +230,11 @@ export default function App() {
             work.
           </p>
           <motion.a
-            href="https://wa.me/+201119644023"
+            href="malto:kingmarw3@gmail.com"
             whileHover={{ scale: 1.1 }}
             className="inline-block bg-purple-500 hover:bg-purple-600 transition-colors duration-300 text-white font-semibold px-8 py-3 rounded-full shadow-md"
           >
-            Send me a message
+            Send me an Email
           </motion.a>
         </motion.div>
       </section>
